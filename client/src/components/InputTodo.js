@@ -7,6 +7,13 @@ const InputTodo = () => {
         e.preventDefault();
         try {
             const body = { description };
+
+            // proxy is only in use in developmeny so it will be ignored in production
+            // if there is no http://localhost:5000 the by default it is going to use heroku domain
+            // this heroku app is just our server serving the build static content and also
+            // holding the restful api
+
+
             const response = await fetch('/todos', {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
