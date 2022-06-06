@@ -2,6 +2,7 @@
   "name": "client",
   "version": "0.1.0",
   "main": "index.html",
+  "homepage": "https://josephmabusela.github.io/pern-todo-app",
   "private": true,
   "dependencies": {
     "cra-template": "1.1.3",
