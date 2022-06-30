@@ -1,4 +1,4 @@
- {
+{
   "name": "server",
   "version": "1.0.0",
   "description": "",
@@ -9,7 +9,7 @@
   },
   "scripts": {
     "start": "node index.js",
-    "heroku-postbuild": "cd client && npm install && npm run build" 
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "author": "",
   "license": "ISC",
@@ -17,6 +17,7 @@
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
+    "nodemon": "^2.0.18",
     "pg": "^8.7.3"
   }
 }

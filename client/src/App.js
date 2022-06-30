@@ -1,19 +1,20 @@
 import React, { Fragment } from "react";
-import './App.css';
+import "./App.css";
 
-// components
+//components
+
 import InputTodo from "./components/InputTodo";
 import ListTodo from "./components/ListTodo";
 
 function App() {
-  return(
+  return (
     <Fragment>
       <div className="container">
         <InputTodo />
         <ListTodo />
       </div>
-  </Fragment>
-  ) 
+    </Fragment>
+  );
 }
 
 export default App;
