@@ -3,7 +3,7 @@ import React, { Fragment, useState } from "react";
 const InputTodo = () => {
   const [description, setDescription] = useState("");
 
-  const onSubmitForm = async e => {
+  const onSubmitForm = async (e) => {
     e.preventDefault();
     try {
       const body = { description };
@@ -33,7 +33,7 @@ const InputTodo = () => {
           type="text"
           className="form-control"
           value={description}
-          onChange={e => setDescription(e.target.value)}
+          onChange={(e) => setDescription(e.target.value)}
         />
         <button className="btn btn-success">Add</button>
       </form>
