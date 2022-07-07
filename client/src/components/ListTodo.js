@@ -1,5 +1,4 @@
-import React, { Fragment, useEffect, useState } from "react";
-
+import React, { Fragment, useState, useEffect } from "react";
 import EditTodo from "./EditTodo";
 
 const ListTodos = () => {
@@ -7,28 +6,25 @@ const ListTodos = () => {
 
   //delete todo function
 
-  const deleteTodo = async id => {
+  async function deleteTodo(id) {
     try {
-      const deleteTodo = await fetch(`/todos/${id}`, {
-        method: "DELETE"
+      const res = await fetch(`/todos/${id}`, {
+        method: "DELETE",
       });
 
-      setTodos(todos.filter(todo => todo.todo_id !== id));
+      setTodos(todos.filter((todo) => todo.todo_id !== id));
     } catch (err) {
       console.error(err.message);
     }
-  };
+  }
 
-  const getTodos = async () => {
-    try {
-      const response = await fetch("/todos");
-      const jsonData = await response.json();
+  async function getTodos() {
+    const res = await fetch("/todos");
 
-      setTodos(jsonData);
-    } catch (err) {
-      console.error(err.message);
-    }
-  };
+    const todoArray = await res.json();
+
+    setTodos(todoArray);
+  }
 
   useEffect(() => {
     getTodos();
@@ -39,7 +35,7 @@ const ListTodos = () => {
   return (
     <Fragment>
       {" "}
-      <table className="table mt-5 text-center">
+      <table class="table mt-5">
         <thead>
           <tr>
             <th>Description</th>
@@ -53,7 +49,8 @@ const ListTodos = () => {
             <td>Doe</td>
             <td>john@example.com</td>
           </tr> */}
-          {todos.map(todo => (
+
+          {todos.map((todo) => (
             <tr key={todo.todo_id}>
               <td>{todo.description}</td>
               <td>
