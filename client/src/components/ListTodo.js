@@ -19,7 +19,7 @@ const ListTodo = () => {
   }
 
   async function getTodos() {
-    const res = await fetch(`/todo`);
+    const res = await fetch('/todo');
 
     const todoArray = await res.json();
 
