@@ -8,7 +8,7 @@ const ListTodo = () => {
 
   async function deleteTodo(id) {
     try {
-      const res = await fetch(`/todos/${id}`, {
+      const response = await fetch(`/todos/${id}`, {
         method: "DELETE",
       });
 
@@ -19,7 +19,7 @@ const ListTodo = () => {
   }
 
   async function getTodos() {
-    const res = await fetch("/todos");
+    const res = await fetch(`/todos`);
 
     const todoArray = await res.json();
 
@@ -29,8 +29,6 @@ const ListTodo = () => {
   useEffect(() => {
     getTodos();
   }, []);
-
-  console.log(todos);
 
   return (
     <Fragment>
