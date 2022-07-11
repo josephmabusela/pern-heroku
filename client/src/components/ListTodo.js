@@ -1,7 +1,7 @@
 import React, { Fragment, useState, useEffect } from "react";
 import EditTodo from "./EditTodo";
 
-const ListTodos = () => {
+const ListTodo = () => {
   const [todos, setTodos] = useState([]);
 
   //delete todo function
@@ -72,4 +72,4 @@ const ListTodos = () => {
   );
 };
 
-export default ListTodos;
+export default ListTodo;
