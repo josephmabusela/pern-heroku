@@ -8,7 +8,7 @@ const ListTodo = () => {
 
   async function deleteTodo(id) {
     try {
-      const response = await fetch(`/todos/${id}`, {
+      const response = await fetch(`/todo/${id}`, {
         method: "DELETE",
       });
 
@@ -19,7 +19,7 @@ const ListTodo = () => {
   }
 
   async function getTodos() {
-    const res = await fetch(`/todos`);
+    const res = await fetch(`/todo`);
 
     const todoArray = await res.json();
 
