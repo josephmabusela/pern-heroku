@@ -19,7 +19,7 @@ const ListTodo = () => {
   }
 
   async function getTodos() {
-    const res = await fetch(`/todos`);
+    const res = await fetch("/todos");
 
     const todoArray = await res.json();
 
@@ -30,7 +30,7 @@ const ListTodo = () => {
     getTodos();
   }, []);
 
-  // console.log(todos);
+  console.log(todos);
 
   return (
     <Fragment>
@@ -44,11 +44,6 @@ const ListTodo = () => {
           </tr>
         </thead>
         <tbody>
-          {/*<tr>
-            <td>John</td>
-            <td>Doe</td>
-            <td>john@example.com</td>
-          </tr> */}
 
           {todos.map((todo) => (
             <tr key={todo.todo_id}>
