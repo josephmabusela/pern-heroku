@@ -3,6 +3,7 @@ const app = express();
 const cors = require("cors");
 const pool = require("./db");
 const path = require("path");
+const { Console } = require("console");
 const PORT = process.env.PORT || 5000;
 
 //process.env.PORT
@@ -32,7 +33,8 @@ app.get("/todo", async (req, res) => {
   try {
     console.log("hahahha");
     const allTodos = await pool.query("SELECT * FROM todo");
-    console.log(allTodos)
+    console.log(allTodos);
+    console.log("got data!")
     res.json(allTodos.rows);
   } catch (err) {
     console.error(err.message);
