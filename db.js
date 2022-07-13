@@ -14,22 +14,16 @@ const devConfig = {
 
 const proConfig = process.env.DATABASE_URL; //heroku addons
 
-const client = new Client({
-  connectionString: process.env.DATABASE_URL,
-  ssl: {
-    rejectUnauthorized: false
-  }
-});
-
-client.connect();
-
-// client.query('SELECT * FROM todo;', (err, res) => {
-//   if (err) throw err;
-//   for (let row of res.rows) {
-//     console.log(JSON.stringify(row));
+// const client = new Client({
+//   connectionString: process.env.DATABASE_URL,
+//   ssl: {
+//     rejectUnauthorized: false
 //   }
-//   client.end();
 // });
+
+// client.connect();
+
+
 
 
 const pool = new Pool({
