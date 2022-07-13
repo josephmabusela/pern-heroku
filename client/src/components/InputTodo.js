@@ -10,7 +10,7 @@ const InputTodo = () => {
       //proxy is only use in development so it will be ignored in production
       //so if there is no http://localhost:5000 then by default it is going to use heroku domain
       //remember this heroku app is just our server serving the build static content and also holding the restful api
-      
+
       const response = await fetch("/todos", {
         method: "POST",
         headers: { "Content-Type": "application/json" },

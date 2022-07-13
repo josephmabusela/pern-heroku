@@ -3,7 +3,6 @@ const app = express();
 const cors = require("cors");
 const pool = require("./db");
 const path = require("path");
-const { Console } = require("console");
 const PORT = process.env.PORT || 5000;
 
 //process.env.PORT
@@ -29,12 +28,10 @@ console.log(path.join(__dirname, "client/build"));
 
 //get all Todos
 
-app.get("/todo", async (req, res) => {
+app.get("/todos", async (req, res) => {
   try {
-    console.log("hahahha");
     const allTodos = await pool.query("SELECT * FROM todo");
-    console.log(allTodos);
-    console.log("got data!")
+
     res.json(allTodos.rows);
   } catch (err) {
     console.error(err.message);
@@ -43,7 +40,7 @@ app.get("/todo", async (req, res) => {
 
 //get a todo
 
-app.get("/todo/:id", async (req, res) => {
+app.get("/todos/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const todo = await pool.query("SELECT * FROM todo WHERE todo_id = $1", [
@@ -57,7 +54,7 @@ app.get("/todo/:id", async (req, res) => {
 
 //create a todo
 
-app.post("/todo", async (req, res) => {
+app.post("/todos", async (req, res) => {
   try {
     console.log(req.body);
     const { description } = req.body;
@@ -74,7 +71,7 @@ app.post("/todo", async (req, res) => {
 
 //update a todo
 
-app.put("/todo/:id", async (req, res) => {
+app.put("/todos/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const { description } = req.body;
@@ -91,7 +88,7 @@ app.put("/todo/:id", async (req, res) => {
 
 //delete a todo
 
-app.delete("/todo/:id", async (req, res) => {
+app.delete("/todos/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const deleteTodo = await pool.query("DELETE FROM todo WHERE todo_id = $1", [

@@ -1,14 +1,14 @@
 import React, { Fragment, useState, useEffect } from "react";
 import EditTodo from "./EditTodo";
 
-const ListTodo = () => {
+const ListTodos = () => {
   const [todos, setTodos] = useState([]);
 
   //delete todo function
 
   async function deleteTodo(id) {
     try {
-      const response = await fetch(`/todo/${id}`, {
+      const res = await fetch(`/todos/${id}`, {
         method: "DELETE",
       });
 
@@ -19,7 +19,7 @@ const ListTodo = () => {
   }
 
   async function getTodos() {
-    const res = await fetch('/todo');
+    const res = await fetch("/todos");
 
     const todoArray = await res.json();
 
@@ -29,6 +29,8 @@ const ListTodo = () => {
   useEffect(() => {
     getTodos();
   }, []);
+
+  console.log(todos);
 
   return (
     <Fragment>
@@ -42,6 +44,11 @@ const ListTodo = () => {
           </tr>
         </thead>
         <tbody>
+          {/*<tr>
+            <td>John</td>
+            <td>Doe</td>
+            <td>john@example.com</td>
+          </tr> */}
 
           {todos.map((todo) => (
             <tr key={todo.todo_id}>
@@ -65,4 +72,4 @@ const ListTodo = () => {
   );
 };
 
-export default ListTodo;
+export default ListTodos;
