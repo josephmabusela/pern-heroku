@@ -23,13 +23,13 @@ const client = new Client({
 
 client.connect();
 
-client.query('SELECT * FROM todo;', (err, res) => {
-  if (err) throw err;
-  for (let row of res.rows) {
-    console.log(JSON.stringify(row));
-  }
-  client.end();
-});
+// client.query('SELECT * FROM todo;', (err, res) => {
+//   if (err) throw err;
+//   for (let row of res.rows) {
+//     console.log(JSON.stringify(row));
+//   }
+//   client.end();
+// });
 
 
 const pool = new Pool({
